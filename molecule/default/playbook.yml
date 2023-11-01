@@ -7,7 +7,7 @@
         hosts:
           - tcp://127.0.0.1:4243
           - unix:///var/run/docker.sock
-    - name: ome.lvm_partition
+    - role: ome.lvm_partition
       vars:
         lvm_vgname: "{{ docker_vgname }}"
         lvm_lvname: "docker-volume"
@@ -16,8 +16,6 @@
         lvm_lvfilesystem: "{{ docker_lvfilesystem }}"
         lvm_lvopts: "{{ docker_lvopts | default(None) }}"
       when: docker_use_custom_storage
-
-
 
   tasks:
     - name: create unprivileged user
