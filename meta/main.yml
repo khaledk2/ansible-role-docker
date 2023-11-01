@@ -14,8 +14,7 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - role:
-    name: ome.lvm_partition
+  - name: ome.lvm_partition
     vars:
       lvm_vgname: "{{ docker_vgname }}"
       lvm_lvname: docker-volume
