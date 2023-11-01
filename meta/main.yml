@@ -14,4 +14,4 @@ galaxy_info:
   galaxy_tags: []
 
 dependencies:
-  - name: ome.lvm_partition
+  - role: ome.lvm_partition
