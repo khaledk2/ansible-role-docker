@@ -1,3 +1,5 @@
 ---
 
-role: ome.lvm_partition
+- src: 'ome.lvm_partition'
+  version: '1.2.0'
+  name: 'lvm_partition'
