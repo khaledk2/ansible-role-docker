@@ -5,7 +5,7 @@
     name: khaledk2.lvm_partition
   vars:
     lvm_vgname: ""
-    lvm_lvname: ''
+    lvm_lvname: 'var_lib_docker'
     lvm_lvmount: "/var/lib/docker"
     lvm_lvsize: "100g"
     lvm_lvfilesystem: "ext4"
