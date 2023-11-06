@@ -11,7 +11,7 @@ platforms:
   # For mysterious reasons naming something "docker" with the current
   # ome-ansible-molecule versions fails
   - name: xdockerx
-    image: rockylinux:9
+    image: eniocarboni/docker-rockylinux-systemd:9
     privileged: true
     command: /sbin/init
     groups:
@@ -36,7 +36,6 @@ provisioner:
       docker-hosts:
         # This should allow docker-in-docker to work
         docker_storage_driver: vfs
-        docker_use_custom_storage: true
     host_vars:
       xdockerx:
         docker_use_ipv4_nic_mtu: true
@@ -44,8 +43,7 @@ provisioner:
         # testing on travis: https://github.com/docker/for-linux/issues/219
         #docker_version: 17.09.1.ce-1.el7.centos
       docker-inactive:
-        docker_systemd_setup: true
-        docker_use_custom_storage: true
+        docker_systemd_setup: false
 scenario:
   name: default
 verifier:
