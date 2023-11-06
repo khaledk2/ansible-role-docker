@@ -27,7 +27,18 @@
       - docker-ce
     state: present
 
-- include: pre_tasks.yml
+- name: Set up partition
+  ansible.builtin.include_role:
+    name: khaledk2.lvm_partition
+  vars:
+    lvm_vgname: "docker-volume"
+    lvm_lvname: 'var_lib_docker'
+    lvm_lvmount: "/var/lib/docker"
+    lvm_lvsize: "100g"
+    lvm_lvfilesystem: "ext4"
+    # lvm_lvopts: "{{ docker_lvopts | default(None) }}"
+  when: docker_use_custom_storage
+
 
 - name: docker | setup lvm docker-pool
   become: true
