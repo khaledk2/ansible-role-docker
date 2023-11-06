@@ -20,7 +20,7 @@ platforms:
     tmpfs:
       - /sys/fs/cgroup
   - name: docker-inactive
-    image: rockylinux:9
+    image: reniocarboni/docker-rockylinux-systemd:9
     groups:
       - docker-hosts
     privileged: true
