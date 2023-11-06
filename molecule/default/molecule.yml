@@ -45,7 +45,6 @@ provisioner:
         #docker_version: 17.09.1.ce-1.el7.centos
       docker-inactive:
         docker_systemd_setup: false
-        docker_use_custom_storage: true
 scenario:
   name: default
 verifier:
