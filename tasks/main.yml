@@ -27,6 +27,8 @@
       - docker-ce
     state: present
 
+- ansible.builtin.import_tasks: pre_tasks.yml
+
 - name: docker | setup lvm docker-pool
   become: true
   lvol:
