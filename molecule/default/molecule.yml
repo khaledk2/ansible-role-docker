@@ -44,7 +44,7 @@ provisioner:
         # testing on travis: https://github.com/docker/for-linux/issues/219
         #docker_version: 17.09.1.ce-1.el7.centos
       docker-inactive:
-        docker_systemd_setup: false
+        docker_systemd_setup: true
         docker_use_custom_storage: true
 scenario:
   name: default
