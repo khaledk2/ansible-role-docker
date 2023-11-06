@@ -36,6 +36,7 @@ provisioner:
       docker-hosts:
         # This should allow docker-in-docker to work
         docker_storage_driver: vfs
+        docker_use_custom_storage: true
     host_vars:
       xdockerx:
         docker_use_ipv4_nic_mtu: true
@@ -44,6 +45,7 @@ provisioner:
         #docker_version: 17.09.1.ce-1.el7.centos
       docker-inactive:
         docker_systemd_setup: false
+        docker_use_custom_storage: true
 scenario:
   name: default
 verifier:
