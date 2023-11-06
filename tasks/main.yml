@@ -1,5 +1,7 @@
 ---
 # Setup a Docker node
+- ansible.builtin.import_tasks: pre_tasks.yml
+
 - name: docker | Import a key for docker
   ansible.builtin.rpm_key:
     state: present
@@ -35,9 +37,6 @@
       {{ docker_lvopts | default(None) }} --thin --poolmetadatasize
       {{ docker_metadatasize }}
   when: docker_use_custom_storage
-
-- ansible.builtin.import_tasks: pre_tasks.yml
-
 
 - name: docker | configuration directory
   become: true
