@@ -8,5 +8,5 @@
     lvm_lvmount: "/var/lib/docker"
     lvm_lvsize: "100g"
     lvm_lvfilesystem: "ext4"
-    docker_lvopts: "{{ docker_lvopts | default(None) }}"
+    lvm_lvopts: "{{ docker_lvopts | default(None) }}"
   when: docker_use_custom_storage
