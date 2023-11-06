@@ -11,7 +11,7 @@ platforms:
   # For mysterious reasons naming something "docker" with the current
   # ome-ansible-molecule versions fails
   - name: xdockerx
-    image: eniocarboni/docker-rockylinux-systemd:9
+    image: rockylinux:9
     privileged: true
     command: /sbin/init
     groups:
@@ -20,7 +20,7 @@ platforms:
     tmpfs:
       - /sys/fs/cgroup
   - name: docker-inactive
-    image: reniocarboni/docker-rockylinux-systemd:9
+    image: rockylinux:9
     groups:
       - docker-hosts
     privileged: true
