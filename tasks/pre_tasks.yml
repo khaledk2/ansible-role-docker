@@ -10,8 +10,3 @@
     lvm_lvfilesystem: "ext4"
     lvm_lvopts: "{{ docker_lvopts | default(None) }}"
   when: docker_use_custom_storage
-
-- name: Set up partition
-  ansible.builtin.import_role:
-    name: khaledk2.lvm_partition
-  when: docker_use_custom_storage
