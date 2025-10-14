@@ -41,7 +41,7 @@
 
 - name: docker | configuration directory
   become: true
-  file:
+  ansible.builtin.file:
     path: /etc/docker
     state: directory
     mode: 0755
@@ -49,7 +49,7 @@
 # https://docs.docker.com/engine/reference/commandline/dockerd/#linux-configuration-file
 - name: docker | configure docker options
   become: true
-  template:
+  ansible.builtin.template:
     src: etc-docker-daemon-json.j2
     dest: /etc/docker/daemon.json
     backup: true
