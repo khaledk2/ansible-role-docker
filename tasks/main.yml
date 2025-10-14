@@ -39,7 +39,7 @@
 
 - name: docker | configuration directory
   become: true
-  file:
+  ansible.builtin.file:
     path: /etc/docker
     state: directory
     mode: 0755
@@ -47,7 +47,7 @@
 # https://docs.docker.com/engine/reference/commandline/dockerd/#linux-configuration-file
 - name: docker | configure docker options
   become: true
-  template:
+  ansible.builtin.template:
     src: etc-docker-daemon-json.j2
     dest: /etc/docker/daemon.json
     backup: true
@@ -64,7 +64,7 @@
 
 - name: docker | enable
   become: true
-  service:
+  ansible.builtin.service:
     name: docker
     state: started
     enabled: true
@@ -73,7 +73,7 @@
 
 - name: docker | group members
   become: true
-  user:
+  ansible.builtin.user:
     name: "{{ item }}"
     groups: docker
     append: true
