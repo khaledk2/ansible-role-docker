@@ -22,15 +22,14 @@
 
 - name: docker | install docker
   become: true
-  ansible.builtin.yum:
-    update_cache: true
+  ansible.builtin.dnf:    
     name:
       - docker-ce
     state: present
 
 - name: docker | setup lvm docker-pool
   become: true
-  lvol:
+  community.general.lvol:
     vg: "{{ docker_vgname }}"
     lv: docker-pool
     size: "{{ docker_poolsize }}"
