@@ -1,4 +1,2 @@
 ---
-- name: lvm_partition
-  src: https://github.com/khaledk2/ansible-role-lvm-partition
-  version: updater_ansible_version
+- name: ome.lvm_partition
