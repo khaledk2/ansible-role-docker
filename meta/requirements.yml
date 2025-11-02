@@ -1,2 +1,2 @@
 ---
-- src: ome.lvm_partition
+- name: ome.lvm_partition

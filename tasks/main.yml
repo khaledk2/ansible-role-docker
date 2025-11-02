@@ -22,15 +22,14 @@
 
 - name: docker | install docker
   become: true
-  ansible.builtin.yum:
-    update_cache: true
+  ansible.builtin.dnf:    
     name:
       - docker-ce
     state: present
 
 - name: docker | setup lvm docker-pool
   become: true
-  lvol:
+  community.general.lvol:
     vg: "{{ docker_vgname }}"
     lv: docker-pool
     size: "{{ docker_poolsize }}"
@@ -41,7 +40,7 @@
 
 - name: docker | configuration directory
   become: true
-  file:
+  ansible.builtin.file:
     path: /etc/docker
     state: directory
     mode: 0755
@@ -49,7 +48,7 @@
 # https://docs.docker.com/engine/reference/commandline/dockerd/#linux-configuration-file
 - name: docker | configure docker options
   become: true
-  template:
+  ansible.builtin.template:
     src: etc-docker-daemon-json.j2
     dest: /etc/docker/daemon.json
     backup: true
